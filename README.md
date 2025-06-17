@@ -4,7 +4,7 @@
 
 ​	**primary** - azul (usada para hiperlinks, estilos de foco e estados ativos)
 
-​	**secondary **- cinza (texto mais leve)
+​	**secondary** - cinza (texto mais leve)
 
 ​	**tertiary** - cinza mais escuro (texto ainda mais leve)
 
