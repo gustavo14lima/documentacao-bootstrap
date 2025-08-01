@@ -1,10 +1,36 @@
- # Color
+# Documentação Bootstrap - Iniciação ao Framework
+
+## Introdução
+
+Esta documentação tem como objetivo apresentar os principais conceitos e utilitários do **Bootstrap 5.3.7**, um framework front-end responsivo, baseado em HTML, CSS e JavaScript. A seguir, você encontrará instruções de uso, links CDN para inclusão em projetos e os principais componentes e classes utilitárias.
+
+### Iniciando com Bootstrap
+
+Para utilizar o Bootstrap em seu projeto HTML, adicione os seguintes links no seu código:
+
+```
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+</html>
+```
+
+## Color
 
 ### Cores disponíveis
 
 ​	**primary** - azul (usada para hiperlinks, estilos de foco e estados ativos)
 
-​	**secondary** - cinza (texto mais leve)
+​	**secondary **- cinza (texto mais leve)
 
 ​	**tertiary** - cinza mais escuro (texto ainda mais leve)
 
@@ -22,39 +48,26 @@
 
 ### Utilitários de Cor para Texto
 
-​	utilizar a classes **.text-(cor disponivel)**
-
-​	pode-se controlar a opacidade de um texto utilizando a classe **.text-opacity-(valor para a opacidade, utilizando valores de 0 até 100)**
+- `.text-(cor)`
+- `.text-opacity-(0 a 100)`
 
 ### Utilitários de Cor de Fundo
 
-​	para trocar a cor de fundo, utilize a classe **.bg-(cor disponivel)**
-
-​	é possivel utilizar opacidade na cor de fundo também, utilizando a classe **.bg-opacity-(valor de 0 até 100)**
+- `.bg-(cor)`
+- `.bg-opacity-(0 a 100)`
 
 ### Outras Aplicações de Cor
 
-​	pode-se estilizar a cor de uma borda, utilizando a classe 
+- `.border`, `.border-(cor)`
+- `.btn`, `.btn-(cor)`
 
-​		**.border** -> cria uma borda
+## Breakpoints
 
-​		**.border-(cor disponivel)** -> cor para a borda
+### Definição
 
-​	seguindo a mesma linha de raciocínio:
+Pontos de corte responsivos baseados na largura da tela.
 
-​		**.btn** -> estilizar para se parecer com um botão
-
-​		**.btn-(cor disponivel)** -> cor para o botão
-
-
-
-# Breakpoints 
-
-### Definição de Breakpoints
-
-​	São pontos de corte em larguras de tela que definem quando estilos/responsividade mudam. Eles aplicam estilos básicos para todas as necessidades, cobrindo a maioria dos tipos de dispositivos.
-
-​	Existem 6 tamanhos predefinidos:
+### Tabela	
 
 | Dispositivo                               | Largura Comum (em px) | Breakpoint Bootstrap        | Sufixo         | Descrição/Exemplo                                  |
 | ----------------------------------------- | --------------------- | --------------------------- | -------------- | -------------------------------------------------- |
@@ -65,58 +78,103 @@
 | Desktop médio/grande                      | 1200 – 1399px         | **Extra large (xl)**        | `xl`           | PCs padrão, monitores de 1080p, iMac, etc.         |
 | Monitor ultra-wide / 4K                   | ≥1400px               | **Extra extra large (xxl)** | `xxl`          | Telas grandes, TVs 4K, monitores gamers            |
 
-### Como utilizar os Breakpoints?
+### Como utilizar
 
-​	Para utilizar os breakpoints, primeiro, utilize a resolução mais alta, ou seja, a `xxl` que seria para monitores com mais de 1400px, com isso, você vai escrevendo com as demais resoluções!
+Use as classes com os sufixos de breakpoint (ex: `col-md-6`, `d-lg-none`, etc.).
 
-### Grid e composição
+## Containers
 
-​	O grid pode ser especificado com os valores dos breakpoints predefinidos. Onde, utilizando a classe `col` junto com ums dos breakpoints.
+### Tipos
 
-#### 	Exemplo:
+- **`.container`** -> aplica um padding lateral, centralizando o container
+- **`.container-fluid`** -> largura de 100%, ocupa a tela por inteira
+- **`.container-{breakpoint}`** -> utiliza os valores dos breakpoints predefinidos
 
-​		`.col-md`
+## Grid
 
-​		Aqui, a coluna está sendo especificada com o tamanho `medium`
+### Estrutura
 
-# Containers
-
-### Tipos de Containers
-
-​	No bootstrap, possui três tipos principais de Containers:
-
-​		**`.container`** -> aplica um padding lateral, centralizando o container
-
-​		**`.container-fluid`** -> largura de 100%, ocupa a tela por inteira
-
-​		**`.container-{breakpoint}`** -> utiliza os valores dos breakpoints predefinidos
-
-# Grid
-
-### Estrutura báscio do Grid	
-
-​	A estrutura básica do Grid segue um padrão composto por três elementos principais:
-
-​		**1.** Container
-
-​		**2.** Row
-
-​		**3.** Column
+- `.container` > `.row` > `.col`
 
 ### Atribuições de Largura
 
-​	Como visto anteriormente, o Grid pode, mais especificamente as colunas, podem utilizar os breakpoints.
+- `.col` (automático)
+- `.col-{n}` (fixo de 1 a 12)
+- `.col-{breakpoint}-{n}` (responsivo)
 
-​	Mas você também pode definir o tamanho da coluna automaticamente, seguindo um número de 1 até 12, onde 12 ocupa a linha inteira e 1 ocupa 1/12 da linha.
+### Gutter
 
-​	Caso apenas especifique **`col`**, o tamanho da coluna será ajustado automaticamente.
-
-### Gutter	
-
-​	Por padrão, cada coluna tem padding horizontal de 0.75 rem, você pode alterar isso utilizando um arquivo CSS interno, assim, podendo alterar o padding e outras propriedades.
+- Espaço entre colunas
+- `.g-0` a `.g-5`, `.gx-*`, `.gy-*`
 
 ### Rows
 
-​	Você pode especificar quantas colunas poderá ter em cada linha, utilizando a propriedade **`row-cols-n`** você especifica a quantidade **n** de colunas que terá em cada linha.
+- `.row-cols-{n}` define o número de colunas por linha
+- Responsivo com `.row-cols-md-3`, etc.
 
-​	Você pode utilizar também os breakpoints, tanto para quantas colunas terá na linha, quanto na linha normal.
+## Utilitários de Espaçamento
+
+### Margin (`m`) e Padding (`p`)
+
+| Direção        | Abreviação |
+| -------------- | ---------- |
+| Todas          | `m` / `p`  |
+| Topo           | `t`        |
+| Base           | `b`        |
+| Esquerda       | `s`        |
+| Direita        | `e`        |
+| X (horizontal) | `x`        |
+| Y (vertical)   | `y`        |
+
+#### Exemplo:
+
+- `.mt-3`: margin-top = espaço 3
+- `.px-2`: padding horizontal = espaço 2
+
+### Opacidade
+
+- `.opacity-0`, `.opacity-25`, `.opacity-50`, `.opacity-75`, `.opacity-100`
+
+## Tipografia
+
+### Tamanhos de Título
+
+- `.h1` até `.h6` simulam os títulos HTML `<h1>` até `<h6>`
+- `.display-1` até `.display-6` criam títulos maiores e mais leves
+
+### Alinhamento
+
+- `.text-start`, `.text-center`, `.text-end`
+
+### Peso da Fonte
+
+- `.fw-bold`, `.fw-semibold`, `.fw-normal`, `.fw-light`
+
+### Estilo da Fonte
+
+- `.fst-italic`, `.fst-normal`
+
+## Botões
+
+### Classes principais
+
+- `.btn`: classe base
+- `.btn-primary`, `.btn-secondary`, `.btn-success`, etc.
+
+### Tamanhos
+
+- `.btn-sm`, `.btn-lg`
+
+### Estados
+
+- `.active`, `.disabled`
+
+#### Exemplo:
+
+```
+<button class="btn btn-success">Confirmar</button>
+<button class="btn btn-outline-danger">Cancelar</button>
+```
+
+
+
